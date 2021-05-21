@@ -13,15 +13,13 @@ import androidx.navigation.fragment.findNavController
 import com.demo.chatapp.R
 import com.demo.chatapp.databinding.LoginFragmentBinding
 import com.demo.chatapp.prefs.UserPrefrence
+import com.demo.chatapp.utils.FirestoreUtil
 import com.demo.chatapp.utils.Resource
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.common.api.ApiException
+import com.google.firebase.auth.FirebaseAuth
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.flow.first
-import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @AndroidEntryPoint
@@ -41,17 +39,19 @@ class LoginFragment : Fragment() {
     @Inject
     lateinit var prefs: UserPrefrence
 
-    private var isLoginStatus = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        GlobalScope.launch(Dispatchers.Main) {
-            if (prefs.isLogin.first()) {
-                isLoginStatus = true
-                updateUI()
-            }
-        }
+        if (FirebaseAuth.getInstance().currentUser != null)
+            updateUI()
+
+
+//        GlobalScope.launch(Dispatchers.Main) {
+//            if (prefs.isLogin.first()) {
+//                updateUI()
+//            }
+//        }
 
     }
 
@@ -104,7 +104,6 @@ class LoginFragment : Fragment() {
                         Resource.Status.LOADING -> {
                             binding?.progressBar?.visibility = View.VISIBLE
                         }
-
                     }
                 })
             } catch (e: ApiException) {
@@ -132,8 +131,16 @@ class LoginFragment : Fragment() {
 //    }
 
     private fun updateUI() {
-        findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
+
+        FirestoreUtil.initCurrentUserIfFirstTime {
+            findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
+        }
+
     }
+
+//    fun callActivity(): Unit {
+//        findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
+//    }
 
 
 }

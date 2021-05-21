@@ -4,6 +4,8 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.setupWithNavController
 import com.demo.chatapp.R
 import com.demo.chatapp.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -22,5 +24,6 @@ class MainActivity : AppCompatActivity() {
 
 //        val appBarConfiguration: AppBarConfiguration = AppBarConfiguration(navController.graph)
 //        binding.toolbar.setupWithNavController(navController, appBarConfiguration)
+
     }
 }
