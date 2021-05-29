@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cardView_item_person"
+    android:layout_width="match_parent"
+    android:layout_height="70dp"
+    android:layout_marginTop="8dp"
+    android:foreground="?android:attr/selectableItemBackground"
+    app:cardBackgroundColor="@android:color/white"
+    android:clickable="true"
+    android:focusable="true"
+    >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ImageView
+            android:id="@+id/imageView_profile_picture"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="16dp"
+            tools:src="@drawable/baseline_account_circle_purple_600_24dp"
+            android:contentDescription="@string/user_image" />
+
+        <TextView
+            android:id="@+id/textView_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/imageView_profile_picture"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:textSize="18sp"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat"
+            tools:text="Demo Name" />
+
+        <TextView
+            android:id="@+id/textView_bio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/textView_name"
+            android:layout_below="@+id/textView_name"
+            android:layout_marginStart="2dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
+            tools:text="Demo Bio" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/black"
+            android:layout_below="@+id/imageView_profile_picture"
+            android:alpha="0.3"
+            android:layout_marginBottom="2dp"/>
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

@@ -11,11 +11,10 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.navigation.fragment.findNavController
-import com.bumptech.glide.Glide
 import com.demo.chatapp.R
 import com.demo.chatapp.databinding.UserProfileFragmentBinding
 import com.demo.chatapp.glide.GlideApp
+import com.demo.chatapp.ui.loginUi.LoginActivity
 import com.demo.chatapp.utils.FirestoreUtil
 import com.demo.chatapp.utils.StorageUtil
 import dagger.hilt.android.AndroidEntryPoint
@@ -79,7 +78,8 @@ class UserProfileFragment : Fragment() {
 
         binding.btnSignOut.setOnClickListener {
             viewModel.logout {
-                findNavController().navigate(R.id.action_homeFragment_to_loginFragment)
+                val intent = Intent(requireActivity(), LoginActivity::class.java)
+                startActivity(intent)
             }
         }
 

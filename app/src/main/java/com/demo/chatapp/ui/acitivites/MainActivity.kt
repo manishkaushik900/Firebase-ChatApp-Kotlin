@@ -1,4 +1,4 @@
-package com.demo.chatapp.ui
+package com.demo.chatapp.ui.acitivites
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -22,8 +22,13 @@ class MainActivity : AppCompatActivity() {
             supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         val navController: NavController = navHostFragment.navController
 
-//        val appBarConfiguration: AppBarConfiguration = AppBarConfiguration(navController.graph)
-//        binding.toolbar.setupWithNavController(navController, appBarConfiguration)
+        val appBarConfiguration: AppBarConfiguration = AppBarConfiguration(navController.graph)
+        binding.toolbar.setupWithNavController(navController, appBarConfiguration)
+
+
+        binding.cartBtn.setOnClickListener {
+            navController.navigate(R.id.action_global_userProfileFragment)
+        }
 
     }
 }

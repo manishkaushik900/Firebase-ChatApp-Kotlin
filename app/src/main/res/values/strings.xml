@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">ChatApp-Android-Firebase-Kotlin</string>
-    <string name="logout">Logout</string>
+    <string name="user_image">user image</string>
+    <string name="fire_your_message">Fire your message</string>
+    <string name="user_name">User Name</string>
+    <string name="my_bio">My Bio</string>
+    <string name="save">Save</string>
+    <string name="sign_out">Sign Out</string>
 </resources>

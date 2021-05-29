@@ -10,7 +10,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ChatAppAndroidFirebaseKotlin">
-        <activity android:name=".ui.MainActivity">
+
+        <activity android:name=".ui.acitivites.MainActivity" />
+
+        <activity
+            android:name=".ui.loginUi.LoginActivity"
+            android:configChanges="keyboardHidden">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -26,8 +31,7 @@
             </intent-filter>
         </service>
 
+        <activity android:name=".ui.ChatActivity" />
     </application>
-
-
 
 </manifest>
